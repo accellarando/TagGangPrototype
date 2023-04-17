@@ -348,7 +348,7 @@ static void move_stepper(gint new_position){
 		/*
 		char cmd[80];
 		sprintf(cmd, "python move_stepper.py %d", d_pos);
-		int status = system(sprintf(cmd));
+		int status = system(cmd);
 		*/
 	}
 }
