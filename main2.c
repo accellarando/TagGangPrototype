@@ -19,6 +19,7 @@
 #include <clutter/clutter.h>
 #include <clutter/clutter-keysyms.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 static SkeltrackSkeleton *skeleton = NULL;
 static GFreenectDevice *kinect = NULL;
@@ -329,9 +330,24 @@ connect_joints (cairo_t *cairo,
   clutter_color_free (color);
 }
 
+static int current_stepper_position = 0; //this corresponds to vertical, right in the middle
 static void move_stepper(gint new_position){
-	new_position -= 320; //todo: figure out what kind of calculations we want to do here
-	printf("Moving stepper motor to %d\n", new_position);
+	//640 pixels, 100 steps
+	//this means 64 pixels per step.
+	int pos = new_position - 320;
+	pos >>= 6; //divide by 64
+	//now. this is an absolute position. figure out how much we need to move
+	int d_pos = pos - current_stepper_position;
+	if(d_pos){
+		current_stepper_position += d_pos;
+		printf("Moving stepper motor %d\n", d_pos);
+
+		/*
+		char cmd[80];
+		sprintf(cmd, "python move_stepper.py %d", d_pos);
+		int status = system(sprintf(cmd));
+		*/
+	}
 }
 
 /*
@@ -345,8 +361,8 @@ static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 	}
 	*/
 	if (right){ //even if both hands are detected, default to right
-		printf("Right hand detected! (%d %d %d)\n", right->x, right->y, right->z);
-		move_stepper(right->x);
+		printf("Right hand detected! (%d %d %d)\n", right->screen_x, right->screen_y, right->z);
+		move_stepper(right->screen_x);
 	}
 	else
 		printf("no right hand!\n"); //don't move the stepper motor
