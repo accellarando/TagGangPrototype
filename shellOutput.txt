@@ -1,0 +1,640 @@
+$ ./main
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Lost too many packets, resyncing...
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ab31
+[Stream 70] Inconsistent flag 75 with 238 packets in buf (242 total), resyncing...
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic b5a6
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic ffff
+[Stream 70] Invalid magic b8d7
+[Stream 70] Inconsistent flag 75 with 234 packets in buf (242 total), resyncing...
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (96 128 609)
+Moving stepper motor -4
+Right hand detected! (96 128 609)
+Right hand detected! (96 128 610)
+Right hand detected! (96 116 616)
+Right hand detected! (132 121 699)
+Moving stepper motor 1
+Right hand detected! (297 101 842)
+Moving stepper motor 2
+Right hand detected! (297 101 842)
+Right hand detected! (297 101 842)
+Right hand detected! (297 101 842)
+no right hand!
+Right hand detected! (368 80 869)
+Moving stepper motor 1
+Right hand detected! (368 80 869)
+Right hand detected! (368 80 869)
+Right hand detected! (368 80 869)
+Right hand detected! (344 152 868)
+Right hand detected! (330 158 866)
+Right hand detected! (330 158 866)
+Right hand detected! (325 153 854)
+Right hand detected! (325 143 850)
+Right hand detected! (328 135 851)
+Right hand detected! (328 135 851)
+Right hand detected! (328 135 851)
+Right hand detected! (328 135 851)
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (336 112 860)
+Right hand detected! (336 112 860)
+Right hand detected! (336 112 860)
+Right hand detected! (336 112 860)
+Right hand detected! (336 112 860)
+Right hand detected! (336 112 860)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (336 112 867)
+Right hand detected! (336 112 867)
+Right hand detected! (336 112 867)
+Right hand detected! (336 112 867)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (320 144 701)
+Right hand detected! (368 96 748)
+Right hand detected! (416 48 781)
+Moving stepper motor 1
+Right hand detected! (392 72 736)
+Right hand detected! (410 78 740)
+Right hand detected! (365 125 695)
+Moving stepper motor -1
+Right hand detected! (365 125 695)
+Right hand detected! (378 120 650)
+Right hand detected! (378 120 650)
+Right hand detected! (339 164 640)
+Right hand detected! (362 165 629)
+Right hand detected! (362 165 629)
+Right hand detected! (379 136 617)
+Right hand detected! (400 140 679)
+Moving stepper motor 1
+Right hand detected! (399 119 654)
+Right hand detected! (394 119 638)
+Right hand detected! (389 133 638)
+Right hand detected! (385 119 628)
+Right hand detected! (383 111 624)
+Moving stepper motor -1
+Right hand detected! (383 111 624)
+Right hand detected! (394 119 635)
+Moving stepper motor 1
+Right hand detected! (401 137 639)
+Right hand detected! (392 147 642)
+Right hand detected! (392 147 642)
+Right hand detected! (386 139 645)
+Right hand detected! (383 133 650)
+Moving stepper motor -1
+Right hand detected! (383 133 650)
+Right hand detected! (382 117 660)
+Right hand detected! (383 108 669)
+Right hand detected! (383 117 678)
+Right hand detected! (383 117 678)
+Right hand detected! (383 112 692)
+Right hand detected! (383 112 692)
+Right hand detected! (372 86 726)
+Right hand detected! (372 86 726)
+Right hand detected! (372 86 726)
+Right hand detected! (372 86 726)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (288 256 616)
+Moving stepper motor -1
+Right hand detected! (288 272 599)
+Right hand detected! (288 272 599)
+Right hand detected! (288 272 599)
+Right hand detected! (300 276 591)
+Right hand detected! (300 276 591)
+Right hand detected! (300 276 591)
+Right hand detected! (300 276 591)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (304 272 600)
+Right hand detected! (304 272 600)
+Right hand detected! (304 288 597)
+Right hand detected! (304 288 597)
+Right hand detected! (304 288 597)
+Right hand detected! (304 288 597)
+no right hand!
+Right hand detected! (304 304 597)
+Right hand detected! (304 304 601)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 603)
+Right hand detected! (304 304 599)
+Right hand detected! (304 304 599)
+Right hand detected! (304 304 599)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 602)
+Right hand detected! (304 304 602)
+no right hand!
+no right hand!
+Right hand detected! (304 336 613)
+Right hand detected! (304 336 613)
+Right hand detected! (304 336 613)
+Right hand detected! (304 336 613)
+Right hand detected! (304 368 580)
+Right hand detected! (304 400 546)
+Right hand detected! (304 396 556)
+Right hand detected! (304 396 556)
+Right hand detected! (304 396 556)
+Right hand detected! (304 396 556)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (304 352 606)
+Right hand detected! (304 352 606)
+Right hand detected! (304 352 606)
+Right hand detected! (304 352 606)
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+no right hand!
+Right hand detected! (416 352 587)
+Moving stepper motor 2
+Right hand detected! (416 352 587)
+Right hand detected! (416 336 611)
+Right hand detected! (416 336 611)
+Right hand detected! (380 344 804)
+Moving stepper motor -1
+Right hand detected! (380 344 804)
+Right hand detected! (380 344 804)
+Right hand detected! (335 282 761)
+Right hand detected! (325 225 714)
+Right hand detected! (325 225 714)
+Right hand detected! (325 225 714)
+Right hand detected! (303 188 685)
+Moving stepper motor -1
+Right hand detected! (303 188 685)
+Right hand detected! (309 143 675)
+Right hand detected! (309 143 675)
+Right hand detected! (309 143 675)
+Right hand detected! (307 141 675)
+Right hand detected! (310 129 680)
+Right hand detected! (303 143 679)
+Right hand detected! (300 147 682)
+Right hand detected! (288 153 683)
+Right hand detected! (282 169 680)
+Right hand detected! (257 190 673)
+Right hand detected! (244 213 675)
+Moving stepper motor -1
+Right hand detected! (241 210 675)
+Right hand detected! (231 216 675)
+Right hand detected! (229 205 675)
+Right hand detected! (231 196 678)
+Right hand detected! (223 191 677)
+Right hand detected! (220 189 678)
+Right hand detected! (220 200 681)
+Right hand detected! (209 196 680)
+Right hand detected! (203 193 681)
+Right hand detected! (202 191 682)
+Right hand detected! (192 191 682)
+Right hand detected! (187 191 683)
+Moving stepper motor -1
+Right hand detected! (174 191 680)
+Right hand detected! (169 191 679)
+Right hand detected! (168 203 681)
+Right hand detected! (158 210 681)
+Right hand detected! (154 213 682)
+Right hand detected! (142 212 679)
+Right hand detected! (137 211 678)
+Right hand detected! (124 209 674)
+Moving stepper motor -1
+Right hand detected! (119 208 673)
+Right hand detected! (119 208 674)
+Right hand detected! (110 208 672)
+Right hand detected! (107 208 672)
+Right hand detected! (107 208 672)
+Right hand detected! (109 220 672)
+Right hand detected! (99 227 671)
+Right hand detected! (94 229 671)
+Right hand detected! (93 228 670)
+Right hand detected! (93 227 669)
+Right hand detected! (82 225 667)
+Right hand detected! (77 224 666)
+Right hand detected! (75 224 666)
+Right hand detected! (76 224 665)
+Right hand detected! (78 224 665)
+Right hand detected! (79 224 664)
+Right hand detected! (79 236 664)
+Right hand detected! (79 243 665)
+Right hand detected! (79 245 665)
+Right hand detected! (79 245 665)
+Right hand detected! (79 244 665)
+Right hand detected! (79 231 664)
+Right hand detected! (79 235 663)
+Right hand detected! (79 238 662)
+Right hand detected! (79 229 662)
+Right hand detected! (79 223 662)
+Right hand detected! (79 221 661)
+Right hand detected! (79 221 661)
+Right hand detected! (79 222 661)
+Right hand detected! (79 223 661)
+Right hand detected! (79 223 661)
+Right hand detected! (79 223 661)
+Right hand detected! (79 223 660)
+Right hand detected! (79 223 659)
+Right hand detected! (79 223 658)
+Right hand detected! (91 223 657)
+Right hand detected! (98 223 657)
+Right hand detected! (101 223 657)
+Right hand detected! (101 223 657)
+Right hand detected! (100 223 656)
+Right hand detected! (99 223 652)
+Right hand detected! (109 223 652)
+Right hand detected! (114 223 651)
+Right hand detected! (128 223 651)
+Moving stepper motor 1
+Right hand detected! (135 223 650)
+Right hand detected! (148 223 649)
+Right hand detected! (154 223 648)
+Right hand detected! (154 212 643)
+Right hand detected! (163 206 644)
+Right hand detected! (166 204 643)
+Right hand detected! (166 204 642)
+Right hand detected! (176 205 643)
+Right hand detected! (181 206 642)
+Right hand detected! (193 207 645)
+Moving stepper motor 1
+Right hand detected! (198 207 646)
+Right hand detected! (211 207 647)
+Right hand detected! (216 207 648)
+Right hand detected! (217 207 646)
+Right hand detected! (226 207 646)
+Right hand detected! (230 207 646)
+Right hand detected! (230 207 645)
+Right hand detected! (228 207 643)
+Right hand detected! (226 196 638)
+Right hand detected! (236 202 641)
+Right hand detected! (242 206 641)
+Right hand detected! (256 197 642)
+Moving stepper motor 1
+Right hand detected! (263 191 641)
+Right hand detected! (264 189 637)
+Right hand detected! (275 200 642)
+Right hand detected! (279 196 640)
+Right hand detected! (279 193 637)
+Right hand detected! (289 202 642)
+Right hand detected! (293 197 641)
+Right hand detected! (293 193 637)
+Right hand detected! (303 202 640)
+Right hand detected! (320 197 644)
+Moving stepper motor 1
+Right hand detected! (329 193 645)
+Right hand detected! (330 191 646)
+Right hand detected! (340 191 648)
+Right hand detected! (344 191 647)
+Right hand detected! (356 191 651)
+Right hand detected! (361 191 650)
+Right hand detected! (360 191 649)
+Right hand detected! (358 191 648)
+Right hand detected! (367 191 651)
+Right hand detected! (371 191 650)
+Right hand detected! (372 168 657)
+Right hand detected! (372 191 654)
+Right hand detected! (383 194 654)
+Right hand detected! (383 194 654)
+Right hand detected! (388 195 651)
+Moving stepper motor 1
+Right hand detected! (388 195 651)
+Right hand detected! (388 195 651)
+Right hand detected! (402 194 652)
+Right hand detected! (408 193 651)
+Right hand detected! (408 193 651)
+Right hand detected! (421 192 655)
+Right hand detected! (425 204 663)
+Right hand detected! (424 211 664)
+Right hand detected! (434 190 666)
+Right hand detected! (438 189 663)
+Right hand detected! (438 200 664)
+Right hand detected! (448 184 671)
+Moving stepper motor 1
+Right hand detected! (453 174 671)
+Right hand detected! (453 170 670)
+Right hand detected! (463 170 679)
+Right hand detected! (468 172 683)
+Right hand detected! (470 174 680)
+Right hand detected! (517 295 979)
+Moving stepper motor 1
+Right hand detected! (494 245 857)
+Moving stepper motor -1
+Right hand detected! (487 215 752)
+Right hand detected! (482 183 689)
+Right hand detected! (515 285 951)
+Moving stepper motor 1
+Right hand detected! (546 348 1107)
+Right hand detected! (549 377 1183)
+Right hand detected! (521 285 900)
+Right hand detected! (536 315 992)
+Right hand detected! (546 335 1057)
+Right hand detected! (538 345 1098)
+Right hand detected! (532 347 1115)
+Right hand detected! (532 347 1115)
+Right hand detected! (532 347 1115)
+Right hand detected! (532 347 1115)
+no right hand!
+no right hand!
+Right hand detected! (32 32 1336)
+Moving stepper motor -8
+Right hand detected! (32 48 1326)
+Right hand detected! (32 64 1320)
+Right hand detected! (32 56 1324)
+Right hand detected! (32 58 1325)
+Right hand detected! (32 56 1324)
+Right hand detected! (32 56 1324)
+Right hand detected! (32 53 1327)
+Right hand detected! (32 50 1330)
+Right hand detected! (32 50 1330)
+Right hand detected! (32 50 1330)
+Right hand detected! (32 49 1331)
+Right hand detected! (32 48 1332)
+Right hand detected! (368 168 1453)
+Moving stepper motor 5
+Right hand detected! (228 118 1402)
+Moving stepper motor -2
+Right hand detected! (109 76 1359)
+Moving stepper motor -2
+Right hand detected! (401 264 1144)
+Moving stepper motor 5
+Right hand detected! (401 264 1144)
+Right hand detected! (401 264 1144)
+Right hand detected! (578 376 1021)
+Moving stepper motor 3
+Right hand detected! (654 422 975)
+Moving stepper motor 1
+Right hand detected! (660 339 725)
+Right hand detected! (642 352 851)
+Right hand detected! (642 352 851)
+Right hand detected! (642 352 851)
+Right hand detected! (642 352 851)
+no right hand!
+Right hand detected! (528 336 1081)
+Moving stepper motor -2
+Right hand detected! (496 176 725)
+Moving stepper motor -1
+Right hand detected! (464 16 383)
+Right hand detected! (432 -24 272)
+Moving stepper motor -1
+Right hand detected! (436 6 334)
+Right hand detected! (449 64 470)
+Moving stepper motor 1
+Right hand detected! (451 109 589)
+Right hand detected! (456 155 681)
+Right hand detected! (449 159 730)
+Right hand detected! (445 169 746)
+Moving stepper motor -1
+Right hand detected! (432 159 743)
+Right hand detected! (426 162 729)
+Right hand detected! (425 163 716)
+Right hand detected! (414 162 702)
+Right hand detected! (410 161 695)
+Right hand detected! (410 160 702)
+Right hand detected! (400 160 693)
+Right hand detected! (395 160 692)
+Right hand detected! (382 160 686)
+Moving stepper motor -1
+Right hand detected! (382 160 686)
+Right hand detected! (377 160 689)
+Right hand detected! (376 160 690)
+Right hand detected! (366 160 687)
+Right hand detected! (362 160 685)
+Right hand detected! (362 160 685)
+Right hand detected! (352 160 681)
+Right hand detected! (352 160 681)
+Right hand detected! (335 160 676)
+Right hand detected! (335 160 676)
+Right hand detected! (327 160 676)
+Right hand detected! (314 160 674)
+Moving stepper motor -1
+Right hand detected! (310 160 674)
+Right hand detected! (299 160 669)
+Right hand detected! (271 184 658)
+Right hand detected! (270 186 657)
+Right hand detected! (251 196 650)
+Moving stepper motor -1
+Right hand detected! (255 188 652)
+Right hand detected! (238 193 649)
+Right hand detected! (231 194 650)
+Right hand detected! (218 194 648)
+Right hand detected! (214 193 650)
+Right hand detected! (203 192 649)
+Right hand detected! (199 192 650)
+Right hand detected! (188 192 649)
+Moving stepper motor -1
+Right hand detected! (172 192 646)
+Right hand detected! (165 192 646)
+Right hand detected! (152 192 645)
+Right hand detected! (148 204 648)
+Right hand detected! (137 199 646)
+Right hand detected! (133 206 649)
+Right hand detected! (134 210 650)
+Right hand detected! (126 211 649)
+Moving stepper motor -1
+Right hand detected! (123 210 649)
+Right hand detected! (123 209 650)
+Right hand detected! (125 208 650)
+Right hand detected! (126 208 651)
+Right hand detected! (127 208 651)
+Right hand detected! (127 208 651)
+Right hand detected! (127 208 651)
+Right hand detected! (127 208 651)
+Right hand detected! (127 208 650)
+Right hand detected! (127 208 648)
+Right hand detected! (139 208 649)
+Moving stepper motor 1
+Right hand detected! (146 208 648)
+Right hand detected! (161 208 649)
+Right hand detected! (167 208 648)
+Right hand detected! (180 208 647)
+Right hand detected! (186 208 645)
+Right hand detected! (198 208 644)
+Moving stepper motor 1
+Right hand detected! (214 208 643)
+Right hand detected! (220 208 639)
+Right hand detected! (232 208 637)
+Right hand detected! (236 208 632)
+Right hand detected! (247 208 632)
+Right hand detected! (250 208 630)
+Right hand detected! (249 208 627)
+Right hand detected! (257 208 630)
+Moving stepper motor 1
+Right hand detected! (257 208 630)
+Right hand detected! (260 208 629)
+Right hand detected! (261 208 628)
+Right hand detected! (259 208 626)
+Right hand detected! (257 220 622)
+Right hand detected! (257 220 622)
+Right hand detected! (256 227 617)
+Right hand detected! (256 229 614)
+Right hand detected! (256 229 614)
+Right hand detected! (268 240 611)
+Right hand detected! (275 246 610)
+Right hand detected! (277 247 608)
+Right hand detected! (276 234 606)
+Right hand detected! (275 237 594)
+Right hand detected! (285 238 591)
+Right hand detected! (302 239 587)
+Right hand detected! (323 239 581)
+Moving stepper motor 1
+Right hand detected! (344 251 569)
+Right hand detected! (344 251 569)
+Right hand detected! (344 251 569)
+Right hand detected! (344 251 569)
+no right hand!
+Right hand detected! (432 352 856)
+Moving stepper motor 1
+Right hand detected! (448 368 850)
+Moving stepper motor 1
+Right hand detected! (448 368 850)
+Right hand detected! (448 368 850)
+Right hand detected! (448 368 850)
+[
