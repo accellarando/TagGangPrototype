@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
 #Python pseudocode for moving the stepper motor
+# https://github.com/accellarando/TagGang/blob/main/docs/meetings/20230415.txt
+# https://github.com/accellarando/TagGangPrototype/blob/main/shellOutput.txt\
+# https://github.com/accellarando/TagGangPrototype/blob/main/main2.c
 
 import os #and whatever other libraries you'll need
 
