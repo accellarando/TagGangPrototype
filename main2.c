@@ -21,6 +21,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define PRINT_DEBUG 1
+
 static SkeltrackSkeleton *skeleton = NULL;
 static GFreenectDevice *kinect = NULL;
 static ClutterActor *info_text;
@@ -340,7 +342,9 @@ static void move_stepper(gint new_position){
 	int d_pos = pos - current_stepper_position;
 	if(d_pos){
 		current_stepper_position += d_pos;
+#if PRINT_DEBUG
 		printf("Moving stepper motor %d\n", d_pos);
+#endif
 
 		/*
 		char cmd[80];
@@ -361,11 +365,17 @@ static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 	}
 	*/
 	if (right){ //even if both hands are detected, default to right
+#if PRINT_DEBUG
 		printf("Right hand detected! (%d %d %d)\n", right->screen_x, right->screen_y, right->z);
+#endif
 		move_stepper(right->screen_x);
 	}
 	else
+#if PRINT_DEBUG
 		printf("no right hand!\n"); //don't move the stepper motor
+#else
+	;
+#endif
 }
 
 static gboolean
