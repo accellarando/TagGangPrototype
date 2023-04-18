@@ -8,12 +8,15 @@
   // ! Arduino sends serial command to stepper driver
   // ! Stepper motor moves to desired position
 
-void setup() {
-  // put your setup code here, to run once:
+int x;
 
+void setup() {
+  Serial.begin(115200);
+  Serial.setTimeout(1);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
+  while (!Serial.available());
+  x = Serial.readString().toInt();
+  Serial.print(x + 1);
 }
