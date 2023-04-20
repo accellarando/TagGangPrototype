@@ -331,8 +331,10 @@ connect_joints (cairo_t *cairo,
   cairo_stroke (cairo);
   clutter_color_free (color);
 }
-//testing branch
-static int current_stepper_position = 0; //this corresponds to vertical, right in the middle
+
+// BRANCH move_stepper IGNORE
+// 200 steps/rev
+static int current_stepper_position = 100; // 200 steps / 2 = 100 steps, middle position of motor's range
 static void move_stepper(gint new_position){
 	//640 pixels, 100 steps
 	//this means 64 pixels per step.
