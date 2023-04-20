@@ -25,7 +25,6 @@
 # Importing libraries
 import subprocess
 import serial # PySerial library to open a serial connection
-import time
 
 # Function: read the C script as a subprocess to capture and send step value from a specific output line
 # through another function
@@ -39,7 +38,7 @@ def read_c_output():
           # Decode the bytes returned by the subprocess' output to a string and strip any white spaces at the start or end of the line
           line = line.decode().strip()
           # Extract the int, d_pos, from the move_stepper function's output line into the int, steps
-          # Assumes line format: "Step motor by %d\n", where %d is  replaced by d_pos
+          # Assumes line format: "Step motor by %d\n", where %d is replaced by d_pos
           if "Step motor by" in line:
                steps = int(line.split()[-1])
                # Call the send_to_arduino function with the extracted d_pos value (int steps) as its arg
@@ -48,7 +47,7 @@ def read_c_output():
 
 # Function: send step value from Python to Arduino via serial communication
 def send_to_arduino(steps):
-     # Configure serial connection (change as needed) using the PySerial library
+     # Open and configure serial connection (change as needed) using the PySerial library
      # FIXME what baud rate to use?
      ser = serial.Serial(port = 'COM4', baudrate = 115200, timeout = 1) # Windows port
      #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
