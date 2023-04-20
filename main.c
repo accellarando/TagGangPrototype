@@ -343,7 +343,7 @@ static void move_stepper(gint new_position){
 	if(d_pos){
 		current_stepper_position += d_pos;
 #if PRINT_DEBUG
-		printf("Moving stepper motor %d\n", d_pos);
+		printf("Step motor by %d\n", d_pos);
 #endif
 		/*
 		char cmd[80];

@@ -5,7 +5,7 @@ R Then, this program calls a script to send the stepper motor command to the ard
 	./stepper_control.py -3
 R The Arduino picks up this serial command
 R Arduino sends serial command to stepper driver
-R Stepper motor moves to desired positio
+R Stepper motor moves to desired position
 # Python script to send the stepper motor command that gives the absolute position(main.c, d_pos) to the Arudino script "serialMotorDrive.ino"
 # over serial communication
 
@@ -19,26 +19,38 @@ R Stepper motor moves to desired positio
 
 # serial comm between py and ino
     # https://www.hackster.io/ansh2919/serial-communication-between-python-and-arduino-e7cce0
-# Importing Libraries
-import serial
-import time
-arduino = serial.Serial(port='COM4', baudrate=115200, timeout=.1)
-def write_read(x):
-    arduino.write(bytes(x, 'utf-8'))
-    time.sleep(0.05)
-    data = arduino.readline()
-    return data
-while True:
-    num = input("Enter a number: ") # Taking input from user
-    value = write_read(num)
-    print(value) # printing the value
 
-
-
-
+# C to Python
+    # https://www.digitalocean.com/community/tutorials/how-to-use-subprocess-to-run-external-programs-in-python-3
+    # https://stackoverflow.com/questions/42993038/using-subprocess-call-to-read-output-of-c-executable-print-statement-realtime
+    
 #!/usr/bin/python3
 
-import os #and whatever other libraries you'll need
+# main.c script updates the int variable, d_pos (private to the move_stepper function), in real time:
+# using Python's subprocess module to run the C script as a subprocess and capture its output.
+
+# Importing libraries
+import subprocess
+
+def read_c_output():
+     # Run main.c as a subprocess and redirect its output to a pipe
+     # File is located in the current working directory as serialMotorCMD.py
+     p = subprocess.Popen(["./main.c"], stdout=subprocess.PIPE)
+
+     # Read and parse the output of main.c, line by line, to find the move_stepper function's output line
+     for line in iter(p.stdout.readline, b''):
+          # Decode the bytes returned by the subprocess' output to a string and strip any white spaces at the start or end of the line
+          line = line.decode().strip()
+          # Extract the int value, d_pos, from the move_stepper function's output line
+          # Assumes line format: "Step motor by %d\n", where %d is  replaced by d_pos
+          if "Step motor by" in line:
+               d_pos = int(line.split()[-1])
+               # Do something with the position value (e.g., print it)
+               print(d_pos)
+
+print(d_pos)
+
+#!/usr/bin/python3
 
 #This function should read the arg from the command line and return a number
 def get_cmd_arg():

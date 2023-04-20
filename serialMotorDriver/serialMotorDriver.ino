@@ -39,13 +39,21 @@ void loop() {
 AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelStepper class for the stepper motor
 
 void setup() {
-  stepper.setMaxSpeed(1000); // Set maximum speed value for the stepper (steps/sec), doc: <1000 steps unreliable
-  stepper.setAcceleration(1000); // Set desired acceleration (steps per second per second), doc: >0.0 acc
+  // Configure the serial port
+  // !! https://www.google.com/search?q=how+to+figure+out+what+baud+rate+to+use+arduino&rlz=1C1CHBF_enUS773US773&oq=how+to+figureout+what+baud+rate+to+use+ar&aqs=chrome.1.69i57j33i10i160l3.10089j0j7&sourceid=chrome&ie=UTF-8
+  Serial.begin(115200); // !! Set baud rate for serial port FIXME
+  //Serial.setTimeout(1); // Set max of 1 ms wait for serial data, doc: default 1000 ms 
+
+  // Configure the stepper motor
+  stepper.setMaxSpeed(1000); // Set max speed value for the stepper (steps/sec), doc: <1000 steps unreliable
+  stepper.setAcceleration(1000); // Set acceleration (steps per second per second), doc: >0.0 acc
 }
 
 void loop() {
+  // Serial communication between serialMotorCMD.py script 
+
   // Read the step value (d_pos) from the serialMotorCMD.py script via serial communication
-  int stepVal = 0;
+  int stepVal = 0; // !! put outside
   if (Serial.available() > 0) { // !! Math already done in move_stepper() main2.c
     stepVal = Serial.parseInt();
   }
