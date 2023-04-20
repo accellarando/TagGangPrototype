@@ -331,7 +331,7 @@ connect_joints (cairo_t *cairo,
   cairo_stroke (cairo);
   clutter_color_free (color);
 }
-
+//testing branch
 static int current_stepper_position = 0; //this corresponds to vertical, right in the middle
 static void move_stepper(gint new_position){
 	//640 pixels, 100 steps
