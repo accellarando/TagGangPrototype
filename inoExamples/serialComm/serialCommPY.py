@@ -18,10 +18,11 @@ def send_receive_from_arduino(x):
 def increment_input():
     # Ask user for input and convert to integer
     num = int(input("Enter a number: "))
+    #print(num)
     # Add 1 to input using Arduino
-    incremented_num = int(send_receive_from_arduino(num)) + 1
+    send_receive_from_arduino(num)
     # Print the incremented number
-    print("Incremented number: ", incremented_num)
+    #print("Incremented number: ", incremented_num)
 
 # Call the increment_input function to start the program
 increment_input()
