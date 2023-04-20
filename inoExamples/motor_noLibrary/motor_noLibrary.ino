@@ -1,5 +1,5 @@
 /*   
- *   Basic example code for controlling a stepper without library
+ *   Basic example code for controlling a  stepper without library
  *      
  *   by Dejan, https://howtomechatronics.com
  */

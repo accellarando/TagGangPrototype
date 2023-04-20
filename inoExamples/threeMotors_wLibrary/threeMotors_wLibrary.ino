@@ -30,9 +30,9 @@ void setup() {
 
 void loop() {
   // Store the target positions in the "gotopostion" array
-  gotoposition[0] = 800;  // 800 steps - full rotation with quater-step resolution
-  gotoposition[1] = 1600;
-  gotoposition[2] = 3200;
+  gotoposition[0] = 800;  // stepper1, 800 steps - full rotation with quater-step resolution
+  gotoposition[1] = 1600; // stepper2
+  gotoposition[2] = 3200; // stepper3
 
   steppersControl.moveTo(gotoposition); // Calculates the required speed for all motors
   steppersControl.runSpeedToPosition(); // Blocks until all steppers are in position
