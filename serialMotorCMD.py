@@ -1,13 +1,4 @@
-# move_stepper.py 
-E Kinect will send information to computer
-E Computer translates that information to a stepper motor command, e.g. "-3" or "24"
-R Then, this program calls a script to send the stepper motor command to the arduino over serial:
-	./stepper_control.py -3
-R The Arduino picks up this serial command
-R Arduino sends serial command to stepper driver
-R Stepper motor moves to desired position
-# Python script to send the stepper motor command that gives the absolute position(main.c, d_pos) to the Arudino script "serialMotorDrive.ino"
-# over serial communication
+# WAS move_stepper.py 
 
 #Python pseudocode for moving the stepper motor
 # https://github.com/accellarando/TagGang/blob/main/docs/meetings/20230415.txt
@@ -28,10 +19,16 @@ R Stepper motor moves to desired position
 
 # main.c script updates the int variable, d_pos (private to the move_stepper function), in real time:
 # using Python's subprocess module to run the C script as a subprocess and capture its output.
+# This output is the step value needed to step the motor in Arduino, which is done through
+# serial connections between the Python and Arudino scripts.
 
 # Importing libraries
 import subprocess
+import serial # PySerial library to open a serial connection
+import time
 
+# Function: read the C script as a subprocess to capture and send step value from a specific output line
+# through another function
 def read_c_output():
      # Run main.c as a subprocess and redirect its output to a pipe
      # File is located in the current working directory as serialMotorCMD.py
@@ -41,25 +38,23 @@ def read_c_output():
      for line in iter(p.stdout.readline, b''):
           # Decode the bytes returned by the subprocess' output to a string and strip any white spaces at the start or end of the line
           line = line.decode().strip()
-          # Extract the int value, d_pos, from the move_stepper function's output line
+          # Extract the int, d_pos, from the move_stepper function's output line into the int, steps
           # Assumes line format: "Step motor by %d\n", where %d is  replaced by d_pos
           if "Step motor by" in line:
-               d_pos = int(line.split()[-1])
-               # Do something with the position value (e.g., print it)
-               print(d_pos)
+               steps = int(line.split()[-1])
+               # Call the send_to_arduino function with the extracted d_pos value (int steps) as its arg
+               send_to_arduino(steps)
+               # FIXME do we need to break?
 
-print(d_pos)
-
-#!/usr/bin/python3
-
-#This function should read the arg from the command line and return a number
-def get_cmd_arg():
-    return 0
-
-#This function should connect to arduino and send the number of steps we want to move
+# Function: send step value from Python to Arduino via serial communication
 def send_to_arduino(steps):
+     # Configure serial connection (change as needed) using the PySerial library
+     # FIXME what baud rate to use?
+     ser = serial.Serial(port = 'COM4', baudrate = 115200, timeout = 1) # Windows port
+     #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
 
+     # Convert the steps value to a byte string and send it to the Arduino
+     ser.write(str(steps).encode())
 
-if __name__ == "__main__":
-    steps = get_cmd_arg()
-    send_to_arduino(steps)
+     # Close the serial port
+     ser.close()
