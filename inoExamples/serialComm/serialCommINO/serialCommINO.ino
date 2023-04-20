@@ -4,12 +4,14 @@
 int x;
 
 void setup() {
-  Serial.begin(115200);
-  Serial.setTimeout(1);
+  // Arduino IDE: Tool < Serial Monitor
+  Serial.begin(9600);
+  //Serial.setTimeout(1); // remove?
+  //Serial.println("ARDUINO READY");
 }
 
 void loop() {
-  while (!Serial.available());
-  x = Serial.readString().toInt();
-  Serial.print(x + 1);
+  //while (!Serial.available());
+  //x = Serial.readString().toInt();
+  //Serial.print(x + 1);
 }

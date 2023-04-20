@@ -4,16 +4,24 @@
 import serial
 import time
 
-arduino = serial.Serial(port='COM4', baudrate=115200, timeout=.1)
+# Arduino Uno (COM9) connected to left-side USB
+ser = serial.Serial(port='COM9', baudrate=9600, timeout=.1)
 
 def write_read(x):
-    arduino.write(bytes(x, 'utf-8'))
+    if not ser.isOpen():
+        ser.open()
+        print('com3 is open', ser.isOpen())
+
+    ser.write(bytes(x, 'utf-8'))
     time.sleep(0.05)
-    data = arduino.readline()
+    data = ser.readline()
     return data
 
-
-while True:
-    num = input("Enter a number: ")
-    value = write_read(num)
-    print(value)
+try:
+    while True:
+        num = input("Enter a number: ")
+        value = write_read(num)
+        print(value)
+        
+finally:
+    ser.close()  # Close the serial port

@@ -26,7 +26,6 @@ AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelS
 
 void setup() {
   // Configure the serial connection
-  // !! https://www.google.com/search?q=how+to+figure+out+what+baud+rate+to+use+arduino&rlz=1C1CHBF_enUS773US773&oq=how+to+figureout+what+baud+rate+to+use+ar&aqs=chrome.1.69i57j33i10i160l3.10089j0j7&sourceid=chrome&ie=UTF-8
   Serial.begin(115200); // Set baud rate for serial port [FIXME DO WE NEED]
   //Serial.setTimeout(1); // Set max of 1 ms wait for serial data, doc: default 1000 ms 
 
