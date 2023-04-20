@@ -48,7 +48,7 @@ def read_c_output():
 # Function: send step value from Python to Arduino via serial communication
 def send_to_arduino(steps):
      # Open and configure serial connection (change as needed) using the PySerial library
-     # FIXME what baud rate to use? - Arduino default = 9600
+     # FIXME what baud rate to use? - Arduino default = 9600 FIXME timeout = .1
      ser = serial.Serial(port = 'COM9', baudrate = 9600, timeout = 1) # Windows port
      #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
 
