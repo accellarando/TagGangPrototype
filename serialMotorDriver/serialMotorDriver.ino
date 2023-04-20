@@ -56,6 +56,8 @@ void loop() {
     String input = Serial.readStringUntil('\n'); // Read incoming data from serialMotorDriver.py as a string (see subprocess1.txt for expl.)
     //stepVal = Serial.parseInt();
     steps = input.toInt(); // Convert the string to an integer
+
+    // DO something with step value
   }
 
   // !! SETUP: restart to default position
