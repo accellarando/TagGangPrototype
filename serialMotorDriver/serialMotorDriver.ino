@@ -7,30 +7,14 @@
   // ! Arduino picks up this serial command
   // ! Arduino sends serial command to stepper driver
   // ! Stepper motor moves to desired position
-/*
-int x;
-
-void setup() {
-  Serial.begin(115200);
-  Serial.setTimeout(1);
-}
-
-void loop() {
-  while (!Serial.available());
-  x = Serial.readString().toInt();
-  Serial.print(x + 1);
-}
-*/
 
 #include <AccelStepper.h>
 
 // Define the stepper motor connections
 #define STEPS_PER_REV 200 // Number of steps per revolution for the stepper motor
-#define STEP 5 // Connect step pin to A5
-#define DIR 4 // Connect direction pin to A4
-//int STEP = 5
-//pinMode(STEP, OUTPUT);
-// ?? Microstepping pins
+#define EN 3              // Enable connected to Nucleo pin 3, Arduino pin D3 (digital)
+#define STEP 8            // Step connected to Nucleo pin 3, Arduino pin D3 (digital)
+#define DIR 9             // Direction connected to Nucleo pin 3, Arduino pin D3 (digital)
 
 // !! Math already done in move_stepper() main2.c, no need to modify position values in define
 
@@ -43,12 +27,15 @@ AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelS
 void setup() {
   // Configure the serial connection
   // !! https://www.google.com/search?q=how+to+figure+out+what+baud+rate+to+use+arduino&rlz=1C1CHBF_enUS773US773&oq=how+to+figureout+what+baud+rate+to+use+ar&aqs=chrome.1.69i57j33i10i160l3.10089j0j7&sourceid=chrome&ie=UTF-8
-  Serial.begin(115200); // !! Set baud rate for serial port FIXME DO WE NEED?
+  Serial.begin(115200); // Set baud rate for serial port [FIXME DO WE NEED]
   //Serial.setTimeout(1); // Set max of 1 ms wait for serial data, doc: default 1000 ms 
 
   // Configure the stepper motor
   stepper.setMaxSpeed(1000); // Set max speed value for the stepper (steps/sec), doc: <1000 steps unreliable
   stepper.setAcceleration(500); // Set acceleration (steps per second per second), doc: >0.0 acc
+
+  // Enable the motor driver (Enable = Active LOW, can ignore function as it is by default)
+  //stepper.enableOutputs();
 }
 
 /**
@@ -57,13 +44,13 @@ void setup() {
 void loop() {
   // Check if there is data available to read from the serial port
   if (Serial.available() > 0) {
-    input = Serial.readStringUntil('\n'); // Read incoming data from serialMotorDriver.py as a string (see subprocess1.txt for expl.)
+    input = Serial.readStringUntil('\n'); // Read incoming byte stream from serialMotorDriver.py as a string and decode it
+    input.trim(); // Remove any trailing whitespace from the input string
     steps = input.toInt(); // Convert the data string to an integer
-    //stepVal = Serial.parseInt();
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
-    stepper.move(steps); // move() accounts for positions in both directions relative to current position
-    //stepper.moveTo(steps); // long absolute
+    // move() accounts for positions in both directions relative to current position
+    stepper.move(steps);
 
     // Wait until the stepper motor has reached its target position
     // distanceToGo() is distance from the current position to the target position in steps in both directions
