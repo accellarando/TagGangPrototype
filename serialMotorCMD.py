@@ -17,10 +17,11 @@
     
 #!/usr/bin/python3
 
-# main.c script updates the int variable, d_pos (private to the move_stepper function), in real time:
+# - main.c script updates the int variable, d_pos (private to the move_stepper function), in real time:
 # using Python's subprocess module to run the C script as a subprocess and capture its output.
-# This output is the step value needed to step the motor in Arduino, which is done through
-# serial connections between the Python and Arudino scripts.
+# - This output is the step value needed to step the motor in Arduino, which is done through
+# serial connections between the Python and Arudino scripts. 
+# - Transmitting data via serial communication is sent as a byte stream (as a sequence of bytes).
 
 # Importing libraries
 import subprocess
@@ -53,6 +54,7 @@ def send_to_arduino(steps):
      #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
 
      # Convert the steps value to a byte string and send it to the Arduino
+     # Encode the data to avoid any communication errors
      ser.write(str(steps).encode())
 
      # Close the serial port
