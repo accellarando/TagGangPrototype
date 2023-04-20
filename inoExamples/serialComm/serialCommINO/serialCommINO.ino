@@ -9,13 +9,18 @@ void setup() {
 }
 
 void loop() {
-  while (Serial.available() > 0){
+  if (Serial.available() > 0){
     // Read data from Python
-    String input = Serial.readString;
-    input.trim();
-    num = input.toInt() + 1;
+
+    int received_value = Serial.parseInt();
+    received_value++;
+    Serial.println(received_value);
+
+    //String input = Serial.readStringUntil('\n');
+    //input.trim();
+    //num = input.toInt() + 1;
     // Send incremented number back to Python
-    Serial.println(num);
+    //Serial.println(num);
   }
 }
 

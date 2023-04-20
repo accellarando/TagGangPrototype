@@ -11,7 +11,7 @@ def send_receive_from_arduino(x):
     # Wait for Arduino to process data and send response
     arduino_data = ser.readline().decode().strip()
     # Close connection to Arduino
-    ser.close()
+    #ser.close()
     # Return response from Arduino
     return arduino_data
 
@@ -20,9 +20,9 @@ def increment_input():
     num = int(input("Enter a number: "))
     #print(num)
     # Add 1 to input using Arduino
-    send_receive_from_arduino(num)
+    incre = (int(send_receive_from_arduino(num)))
     # Print the incremented number
-    #print("Incremented number: ", incremented_num)
+    print("Incremented number: ", incre)
 
 # Call the increment_input function to start the program
 increment_input()
