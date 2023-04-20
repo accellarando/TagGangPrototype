@@ -10,18 +10,15 @@ ser = serial.Serial(port='COM9', baudrate=9600, timeout=.1)
 def write_read(x):
     if not ser.isOpen():
         ser.open()
-        print('com3 is open', ser.isOpen())
-
+        #print('com is open', ser.isOpen())
+  
     ser.write(bytes(x, 'utf-8'))
     time.sleep(0.05)
     data = ser.readline()
     return data
 
-try:
-    while True:
-        num = input("Enter a number: ")
-        value = write_read(num)
-        print(value)
-        
-finally:
+while True:
+    num = input("Enter a number: ")
+    value = write_read(num)
+    print(value)
     ser.close()  # Close the serial port

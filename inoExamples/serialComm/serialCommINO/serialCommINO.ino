@@ -7,11 +7,11 @@ void setup() {
   // Arduino IDE: Tool < Serial Monitor
   Serial.begin(9600);
   //Serial.setTimeout(1); // remove?
-  //Serial.println("ARDUINO READY");
+  Serial.println("ARDUINO READY (1)");
 }
 
 void loop() {
-  //while (!Serial.available());
-  //x = Serial.readString().toInt();
-  //Serial.print(x + 1);
+  while (!Serial.available());
+  x = Serial.readString().toInt();
+  Serial.print(x + 1);
 }
