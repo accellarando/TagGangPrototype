@@ -6,7 +6,8 @@ R Then, this program calls a script to send the stepper motor command to the ard
 R The Arduino picks up this serial command
 R Arduino sends serial command to stepper driver
 R Stepper motor moves to desired positio
-# Python script to send the stepper motor command (main.c, d_pos) to the Arudino script "serialMotorDrive.ino" over serial communication
+# Python script to send the stepper motor command that gives the absolute position(main.c, d_pos) to the Arudino script "serialMotorDrive.ino"
+# over serial communication
 
 #Python pseudocode for moving the stepper motor
 # https://github.com/accellarando/TagGang/blob/main/docs/meetings/20230415.txt
@@ -31,6 +32,8 @@ while True:
     num = input("Enter a number: ") # Taking input from user
     value = write_read(num)
     print(value) # printing the value
+
+
 
 
 #!/usr/bin/python3

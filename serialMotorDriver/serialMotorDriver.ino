@@ -7,7 +7,7 @@
   // ! Arduino picks up this serial command
   // ! Arduino sends serial command to stepper driver
   // ! Stepper motor moves to desired position
-
+/*
 int x;
 
 void setup() {
@@ -19,4 +19,47 @@ void loop() {
   while (!Serial.available());
   x = Serial.readString().toInt();
   Serial.print(x + 1);
+}
+*/
+
+#include <AccelStepper.h>
+
+// Define the pins connected to the stepper motor driver
+#define STEP 5 // Connect step pin to A5
+#define DIR 4 // Connect direction pin to A4
+//int STEP = 5
+//pinMode(STEP, OUTPUT);
+
+// ?? Microstepping pins
+
+#define STEPS_PER_REV 200 // Define the number of steps per revolution for the stepper motor
+
+// !! Math already done in move_stepper() main2.c, no need to modify position values in define
+
+AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelStepper class for the stepper motor
+
+void setup() {
+  stepper.setMaxSpeed(1000); // Set maximum speed value for the stepper (steps/sec), doc: <1000 steps unreliable
+  stepper.setAcceleration(1000); // Set desired acceleration (steps per second per second), doc: >0.0 acc
+}
+
+void loop() {
+  // Read the step value (d_pos) from the serialMotorCMD.py script via serial communication
+  int stepVal = 0;
+  if (Serial.available() > 0) { // !! Math already done in move_stepper() main2.c
+    stepVal = Serial.parseInt();
+  }
+
+  // !! SETUP: restart to default position
+  while (stepper1.currentPosition() != 0) { // loop executes until both motors reach position 0
+  stepper1.run();
+  }
+
+  // ?? PSUEDO: create hand-gesture to start tracking
+
+  // Using step values sent from serialMotorCMD.py
+  int targetPos = stepVal * STEPS_PER_REV / 360; // Convert the step value to a target position for the stepper motor
+  // Move the stepper motor to the target position
+  stepper.moveTo(targetPos);
+  stepper.run();
 }
