@@ -39,10 +39,13 @@ void setup() {
 
 void loop() {
   // Check if there is data available to read from the serial port
-  // FIXME if OR while?
-  if (Serial.available() > 0) {
-    input = Serial.readStringUntil('\n'); // Read incoming byte stream from serialMotorDriver.py as a string and decode it
-    steps = input.toInt(); // Convert the data string to an integer
+  // Assumes serialMotorCMD.py two-byte representation of the integer
+  // Non-blocking serial read so that the Arduino can continue executing other code 
+  // in the loop function while waiting for input from Python.
+  if (Serial.available() >= 2) {
+    byte data[2]; // Read the input as a byte array
+    Serial.readBytes(data, 2);
+    int steps = (data[0] << 8) | data[1]; // Convert the byte array to an integer
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
     // move() accounts for positions in both directions relative to current position
@@ -54,19 +57,4 @@ void loop() {
       stepper.run();
     }
   }
-
-  // !! SETUP: restart to default position
-
-  // ?? OUTSIDE OR INSIDE IF COND
-  while (stepper1.currentPosition() != 0) { // loop executes until both motors reach position 0
-  stepper1.run();
-  }
-
-  // ?? PSUEDO: create hand-gesture to start tracking
-
-  // Using step values sent from serialMotorCMD.py
-  int targetPos = stepVal * STEPS_PER_REV / 360; // Convert the step value to a target position for the stepper motor
-  // Move the stepper motor to the target position
-  stepper.moveTo(targetPos);
-  stepper.run();
 }
