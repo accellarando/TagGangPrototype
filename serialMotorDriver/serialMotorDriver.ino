@@ -40,7 +40,7 @@ void setup() {
 void loop() {
   // Check if there is data available to read from the serial port
   // Assumes serialMotorCMD.py two-byte representation of the integer
-  // Non-blocking serial read so that the Arduino can continue executing other code 
+  // ! Non-blocking serial read so that the Arduino can continue executing other code 
   // in the loop function while waiting for input from Python.
   if (Serial.available() >= 2) {
     byte data[2]; // Read the input as a byte array
