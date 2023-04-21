@@ -10,7 +10,7 @@ def get_cmd_arg():
 
 #This function should connect to arduino and send the number of steps we want to move
 def send_to_arduino(steps):
-
+    pass
 
 if __name__ == "__main__":
     steps = get_cmd_arg()

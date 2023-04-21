@@ -345,11 +345,9 @@ static void move_stepper(gint new_position){
 #if PRINT_DEBUG
 		printf("Moving stepper motor %d\n", d_pos);
 #endif
-		/*
 		char cmd[80];
 		sprintf(cmd, "python move_stepper.py %d", d_pos);
 		int status = system(cmd);
-		*/
 	}
 }
 
