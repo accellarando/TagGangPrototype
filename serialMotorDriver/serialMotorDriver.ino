@@ -12,9 +12,9 @@
 
 // Define the stepper motor connections
 #define STEPS_PER_REV 200 // Number of steps per revolution for the stepper motor
-#define EN 3              // Enable connected to Nucleo pin 3, Arduino pin D3 (digital)
-#define STEP 8            // Step connected to Nucleo pin 3, Arduino pin D8 (digital)
-#define DIR 9             // Direction connected to Nucleo pin 3, Arduino pin D9 (digital)
+#define EN 3              // Enable connected to Nucleo CN5 3, Arduino pin D2 (digital)
+#define STEP 5            // Step connected to Nucleo CN5 6, Arduino pin D5 (digital)
+#define DIR 7             // Direction connected to Nucleo CN5 8, Arduino pin D7 (digital)
 
 // !! Math already done in move_stepper() main2.c, no need to modify position values in define
 
@@ -26,7 +26,7 @@ AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelS
 
 void setup() {
   // Configure the serial connection
-  Serial.begin(115200); // Set baud rate for serial port [FIXME DO WE NEED]
+  Serial.begin(9600); // Set baud rate for serial port [FIXME DO WE NEED]
   //Serial.setTimeout(1); // Set max of 1 ms wait for serial data, doc: default 1000 ms 
 
   // Configure the stepper motor
@@ -54,19 +54,4 @@ void loop() {
       stepper.run();
     }
   }
-
-  // !! SETUP: restart to default position
-
-  // ?? OUTSIDE OR INSIDE IF COND
-  while (stepper1.currentPosition() != 0) { // loop executes until both motors reach position 0
-  stepper1.run();
-  }
-
-  // ?? PSUEDO: create hand-gesture to start tracking
-
-  // Using step values sent from serialMotorCMD.py
-  int targetPos = stepVal * STEPS_PER_REV / 360; // Convert the step value to a target position for the stepper motor
-  // Move the stepper motor to the target position
-  stepper.moveTo(targetPos);
-  stepper.run();
 }
