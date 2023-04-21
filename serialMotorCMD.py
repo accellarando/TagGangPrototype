@@ -1,12 +1,9 @@
 # WAS move_stepper.py 
 
-#Python pseudocode for moving the stepper motor
 # https://github.com/accellarando/TagGang/blob/main/docs/meetings/20230415.txt
 # https://github.com/accellarando/TagGangPrototype/blob/main/shellOutput.txt\
-# https://github.com/accellarando/TagGangPrototype/blob/main/main2.c
-# https://www.youtube.com/watch?v=7spK_BkMJys
+# https://github.com/accellarando/TagGangPrototype/blob/main/main.c
 # https://howtomechatronics.com/tutorials/arduino/stepper-motors-and-arduino-the-ultimate-guide/
-# https://docs.google.com/document/d/15zFXHQggSIYDtgaQV2rhGvOE4UlRhYPvJxaJMdB6EUI/edit?usp=sharing
 
 # serial comm between py and ino
     # https://www.hackster.io/ansh2919/serial-communication-between-python-and-arduino-e7cce0
@@ -53,7 +50,11 @@ def send_to_arduino(steps):
      #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
 
      # Convert the steps value to a byte string and send it to the Arduino
+     # e.g., -1 -> b'-1'
      ser.write(str(steps).encode())
 
      # Close the serial port
      ser.close()
+
+# Call the read_c_output function to start the program
+read_c_output()

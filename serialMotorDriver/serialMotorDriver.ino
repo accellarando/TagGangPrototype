@@ -13,8 +13,8 @@
 // Define the stepper motor connections
 #define STEPS_PER_REV 200 // Number of steps per revolution for the stepper motor
 #define EN 3              // Enable connected to Nucleo pin 3, Arduino pin D3 (digital)
-#define STEP 8            // Step connected to Nucleo pin 3, Arduino pin D3 (digital)
-#define DIR 9             // Direction connected to Nucleo pin 3, Arduino pin D3 (digital)
+#define STEP 8            // Step connected to Nucleo pin 3, Arduino pin D8 (digital)
+#define DIR 9             // Direction connected to Nucleo pin 3, Arduino pin D9 (digital)
 
 // !! Math already done in move_stepper() main2.c, no need to modify position values in define
 
@@ -37,14 +37,11 @@ void setup() {
   //stepper.enableOutputs();
 }
 
-/**
- * Serial communication between serialMotorCMD.py script
- */
 void loop() {
   // Check if there is data available to read from the serial port
+  // FIXME if OR while?
   if (Serial.available() > 0) {
     input = Serial.readStringUntil('\n'); // Read incoming byte stream from serialMotorDriver.py as a string and decode it
-    input.trim(); // Remove any trailing whitespace from the input string
     steps = input.toInt(); // Convert the data string to an integer
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
