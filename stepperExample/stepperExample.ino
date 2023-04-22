@@ -4,9 +4,18 @@
 #define DIR_PIN 7
 #define ENABLE_PIN 2
 #define CONTROL_PIN 5
+#define RESET_PIN 8
 
 #define VREFA_PIN 3
 #define VREFB_PIN 9
+
+byte directionPin = 7;
+int numberOfSteps = 100;
+byte ledPin = 13;
+int pulseWidthMicros = 20;  // microseconds
+int millisbetweenSteps = 250;
+
+Stepper stepper(200, DIR_PIN, STEP_PIN);
 
 void setup(){
   pinMode(STEP_PIN, OUTPUT);
@@ -15,30 +24,18 @@ void setup(){
   pinMode(VREFA_PIN, OUTPUT);
   pinMode(VREFB_PIN, OUTPUT);
 
-  analogWrite(VREFA_PIN, 100);
-  analogWrite(VREFB_PIN, 100);
+  analogWrite(VREFA_PIN, 50);
+  analogWrite(VREFB_PIN, 50);
+
   digitalWrite(ENABLE_PIN, HIGH);
-  
+  digitalWrite(RESET_PIN, HIGH);
+
+  stepper.setSpeed(200);
 }
 
 void loop(){
-   digitalWrite(DIR_PIN,HIGH); // Enables the motor to move in a particular direction
-  // Makes 200 pulses for making one full cycle rotation
-  for(int x = 0; x < 800; x++) {
-    digitalWrite(STEP_PIN,HIGH); 
-    delayMicroseconds(700);    // by changing this time delay between the steps we can change the rotation speed
-    digitalWrite(STEP_PIN,LOW); 
-    delayMicroseconds(700); 
-  }
-  delay(1000); // One second delay
-  
-  digitalWrite(DIR_PIN,LOW); //Changes the rotations direction
-  // Makes 400 pulses for making two full cycle rotation
-  for(int x = 0; x < 1600; x++) {
-    digitalWrite(STEP_PIN,HIGH);
-    delayMicroseconds(500);
-    digitalWrite(STEP_PIN,LOW);
-    delayMicroseconds(500);
-  }
+  stepper.step(200);
+  delay(1000);
+  stepper.step(-200);
   delay(1000);
 }

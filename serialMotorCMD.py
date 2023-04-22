@@ -22,6 +22,11 @@
 # Importing libraries
 import subprocess
 import serial # PySerial library to open a serial connection
+import sys
+
+def parse_args():
+    send_to_arduino(sys.argv[1])
+
 
 # Function: read the C script as a subprocess to capture and send step value from a specific output line
 # through another function
@@ -51,10 +56,14 @@ def send_to_arduino(steps):
 
      # Convert the steps value to a byte string and send it to the Arduino
      # e.g., -1 -> b'-1'
-     ser.write(str(steps).encode())
+     data = (str(steps)+"\n").encode()
+     print(data)
+     retval = ser.write(data)
+     print(retval)
 
      # Close the serial port
      ser.close()
 
 # Call the read_c_output function to start the program
-read_c_output()
+# read_c_output()
+parse_args();

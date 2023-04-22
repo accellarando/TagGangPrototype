@@ -346,8 +346,9 @@ static void move_stepper(gint new_position){
 		printf("Step motor by %d\n", d_pos);
 #endif
 		char cmd[80];
-		sprintf(cmd, "python move_stepper.py %d", d_pos);
+		sprintf(cmd, "python serialMotorCMD.py %d", d_pos);
 		int status = system(cmd);
+		printf("Python says %d\n", status);
 	}
 }
 

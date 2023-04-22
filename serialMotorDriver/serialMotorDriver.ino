@@ -8,7 +8,7 @@
   // ! Arduino sends serial command to stepper driver
   // ! Stepper motor moves to desired position
 
-#include <AccelStepper.h>
+#include <Stepper.h>
 
 // Define the stepper motor connections
 #define STEPS_PER_REV 200 // Number of steps per revolution for the stepper motor
@@ -16,14 +16,43 @@
 #define STEP 5            // Step connected to Nucleo CN5 6, Arduino pin D5 (digital)
 #define DIR 7             // Direction connected to Nucleo CN5 8, Arduino pin D7 (digital)
 
+#define STEP_PIN 6
+#define DIR_PIN 7
+#define ENABLE_PIN 2
+#define CONTROL_PIN 5
+#define RESET_PIN 8
+
+#define VREFA_PIN 3
+#define VREFB_PIN 9
 // !! Math already done in move_stepper() main2.c, no need to modify position values in define
 
 // Private variables
 int steps;
 String input;
 
-AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelStepper class for the stepper motor
+//AccelStepper stepper(AccelStepper::DRIVER, STEP, DIR); // Instance of the AccelStepper class for the stepper motor
+Stepper stepper(200, DIR_PIN, STEP_PIN);
 
+void setup(){
+  pinMode(STEP_PIN, OUTPUT);
+  pinMode(DIR_PIN, OUTPUT);
+  pinMode(ENABLE_PIN, OUTPUT);
+  pinMode(VREFA_PIN, OUTPUT);
+  pinMode(VREFB_PIN, OUTPUT);
+
+  analogWrite(VREFA_PIN, 50);
+  analogWrite(VREFB_PIN, 50);
+
+  //digitalWrite(ENABLE_PIN, HIGH);
+  digitalWrite(RESET_PIN, HIGH);
+
+  stepper.setSpeed(200);
+
+  // Configure the serial connection
+  Serial.begin(9600); // Set baud rate for serial port [FIXME DO WE NEED]
+}
+
+/*
 void setup() {
   // Configure the serial connection
   Serial.begin(9600); // Set baud rate for serial port [FIXME DO WE NEED]
@@ -33,9 +62,12 @@ void setup() {
   stepper.setMaxSpeed(1000); // Set max speed value for the stepper (steps/sec), doc: <1000 steps unreliable
   stepper.setAcceleration(500); // Set acceleration (steps per second per second), doc: >0.0 acc
 
+  
+
   // Enable the motor driver (Enable = Active LOW, can ignore function as it is by default)
   //stepper.enableOutputs();
 }
+*/
 
 void loop() {
   // Check if there is data available to read from the serial port
@@ -46,8 +78,10 @@ void loop() {
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
     // move() accounts for positions in both directions relative to current position
-    stepper.moveTo(steps);
-    stepper.runToPosition();
+    digitalWrite(ENABLE_PIN, HIGH);
+    stepper.step(steps*10);
+    digitalWrite(ENABLE_PIN, LOW);
+    //stepper.runToPosition();
 
     // Wait until the stepper motor has reached its target position
     // distanceToGo() is distance from the current position to the target position in steps in both directions
