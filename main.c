@@ -20,7 +20,10 @@
 #include <clutter/clutter-keysyms.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <unistd.h>
+#include <fcntl.h>      // File control definitions
+#include <termios.h>    // POSIX terminal control definitions
+						
 #define PRINT_DEBUG 1
 
 static SkeltrackSkeleton *skeleton = NULL;
@@ -687,6 +690,8 @@ main (int argc, char *argv[])
                         NULL);
 
   signal (SIGINT, quit);
+
+  int arduino = open( "/dev/ttyACM0", O_RDWR| O_NOCTTY ); //keep the serial port open for arduino
 
   clutter_main ();
 

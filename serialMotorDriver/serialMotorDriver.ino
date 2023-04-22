@@ -45,11 +45,12 @@ void setup(){
 
   //digitalWrite(ENABLE_PIN, HIGH);
   digitalWrite(RESET_PIN, HIGH);
+  digitalWrite(CONTROL_PIN, LOW);
 
-  stepper.setSpeed(200);
+  stepper.setSpeed(1000);
 
   // Configure the serial connection
-  Serial.begin(9600); // Set baud rate for serial port [FIXME DO WE NEED]
+  Serial.begin(115200); // Set baud rate for serial port [FIXME DO WE NEED]
 }
 
 /*
@@ -72,15 +73,20 @@ void setup() {
 void loop() {
   // Check if there is data available to read from the serial port
   // FIXME if OR while?
-  if (Serial.available() > 0) {
+  char c[20];
+  if (Serial.available()) {
+    
     input = Serial.readStringUntil('\n'); // Read incoming byte stream from serialMotorDriver.py as a string and decode it
     steps = input.toInt(); // Convert the data string to an integer
+    for(int i=0; i<input.length(); i++)
+      Serial.println((char)input[i], HEX);
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
     // move() accounts for positions in both directions relative to current position
     digitalWrite(ENABLE_PIN, HIGH);
-    stepper.step(steps*10);
+    stepper.step(steps*8); //8 clock signals = 1 step
     digitalWrite(ENABLE_PIN, LOW);
+    //Serial.flush();
     //stepper.runToPosition();
 
     // Wait until the stepper motor has reached its target position
@@ -88,5 +94,10 @@ void loop() {
     //while (stepper.distanceToGo() != 0){
     //  stepper.run();
     //}
+   
+  }
+  else{
+    //Serial.write("Nothing received");
+    delay(1000);
   }
 }

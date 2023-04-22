@@ -23,6 +23,7 @@
 import subprocess
 import serial # PySerial library to open a serial connection
 import sys
+import time
 
 def parse_args():
     send_to_arduino(sys.argv[1])
@@ -52,14 +53,15 @@ def send_to_arduino(steps):
      # Open and configure serial connection (change as needed) using the PySerial library
      # FIXME what baud rate to use? - Arduino default = 9600 FIXME timeout = .1
      # ser = serial.Serial(port = 'COM9', baudrate = 9600, timeout = 1) # Windows port
-     ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 9600, timeout = 1) # Linux port
+     ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
+     # ser = serial.Serial(port='/dev/ttyACM0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=1)
+     # time.sleep(2)
 
      # Convert the steps value to a byte string and send it to the Arduino
      # e.g., -1 -> b'-1'
-     data = (str(steps)+"\n").encode()
+     data = (str(steps)+'\n').encode()
      print(data)
      retval = ser.write(data)
-     print(retval)
 
      # Close the serial port
      ser.close()
