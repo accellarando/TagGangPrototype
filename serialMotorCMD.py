@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # WAS move_stepper.py 
 
 # https://github.com/accellarando/TagGang/blob/main/docs/meetings/20230415.txt
@@ -12,7 +13,6 @@
     # https://www.digitalocean.com/community/tutorials/how-to-use-subprocess-to-run-external-programs-in-python-3
     # https://stackoverflow.com/questions/42993038/using-subprocess-call-to-read-output-of-c-executable-print-statement-realtime
     
-#!/usr/bin/python3
 
 # main.c script updates the int variable, d_pos (private to the move_stepper function), in real time:
 # using Python's subprocess module to run the C script as a subprocess and capture its output.
@@ -28,7 +28,7 @@ import serial # PySerial library to open a serial connection
 def read_c_output():
      # Run main.c as a subprocess and redirect its output to a pipe
      # File is located in the current working directory as serialMotorCMD.py
-     p = subprocess.Popen(["./main.c"], stdout=subprocess.PIPE)
+     p = subprocess.Popen(["./main"], stdout=subprocess.PIPE)
 
      # Read and parse the output of main.c, line by line, to find the move_stepper function's output line
      for line in iter(p.stdout.readline, b''):
@@ -46,8 +46,8 @@ def read_c_output():
 def send_to_arduino(steps):
      # Open and configure serial connection (change as needed) using the PySerial library
      # FIXME what baud rate to use? - Arduino default = 9600 FIXME timeout = .1
-     ser = serial.Serial(port = 'COM9', baudrate = 9600, timeout = 1) # Windows port
-     #ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
+     # ser = serial.Serial(port = 'COM9', baudrate = 9600, timeout = 1) # Windows port
+     ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 9600, timeout = 1) # Linux port
 
      # Convert the steps value to a byte string and send it to the Arduino
      # e.g., -1 -> b'-1'
