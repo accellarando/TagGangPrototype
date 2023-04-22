@@ -60,7 +60,6 @@ def send_to_arduino(steps):
      # Convert the steps value to a byte string and send it to the Arduino
      # e.g., -1 -> b'-1'
      data = (str(steps)+'\n').encode()
-     print(data)
      retval = ser.write(data)
 
      # Close the serial port

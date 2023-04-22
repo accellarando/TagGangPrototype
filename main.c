@@ -338,9 +338,9 @@ connect_joints (cairo_t *cairo,
 static int current_stepper_position = 0; //this corresponds to vertical, right in the middle
 static void move_stepper(gint new_position){
 	//640 pixels, 100 steps
-	//this means 64 pixels per step.
-	int pos = new_position - 320;
-	pos >>= 6; //divide by 64
+	//this means 6.4 pixels per step.
+	int pos = (new_position - 320);
+	pos /= 6;
 	//now. this is an absolute position. figure out how much we need to move
 	int d_pos = pos - current_stepper_position;
 	if(d_pos){
@@ -351,13 +351,15 @@ static void move_stepper(gint new_position){
 		char cmd[80];
 		sprintf(cmd, "python serialMotorCMD.py %d", d_pos);
 		int status = system(cmd);
-		printf("Python says %d\n", status);
 	}
 }
 
 /*
  * Processes hand locations to send to arduinooooo
  */
+static int right_hand_sum = 0;
+static int i = 0;
+#define NUM_SAMPLES 4
 static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 	/*
 	if(left && !right){
@@ -369,13 +371,19 @@ static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 #if PRINT_DEBUG
 		printf("Right hand detected! (%d %d %d)\n", right->screen_x, right->screen_y, right->z);
 #endif
-		move_stepper(right->screen_x);
+		right_hand_sum += right->screen_x;
+		i++;
+		if(i>=NUM_SAMPLES){
+			right_hand_sum /= NUM_SAMPLES;
+			move_stepper(right_hand_sum);
+			right_hand_sum = 0;
+			i = 0;
+		}
+
 	}
 	else
 #if PRINT_DEBUG
 		printf("no right hand!\n"); //don't move the stepper motor
-#else
-	;
 #endif
 }
 
@@ -431,7 +439,7 @@ on_skeleton_draw (ClutterCanvas *canvas,
 
   paint_joint (cairo, left_hand, 30, "#C2FF00");
 
-  paint_joint (cairo, right_hand, 30, "#00FAFF");
+  paint_joint (cairo, right_hand, 30, "#FF0000");
 
   skeltrack_joint_list_free (list);
   list = NULL;
