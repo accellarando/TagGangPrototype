@@ -46,12 +46,13 @@ void loop() {
 
     // Move the stepper motor by the incoming-data-specified number of steps (non-blocking)
     // move() accounts for positions in both directions relative to current position
-    stepper.move(steps);
+    stepper.moveTo(steps);
+    stepper.runToPosition();
 
     // Wait until the stepper motor has reached its target position
     // distanceToGo() is distance from the current position to the target position in steps in both directions
-    while (stepper.distanceToGo() ! = 0){
-      stepper.run();
-    }
+    //while (stepper.distanceToGo() != 0){
+    //  stepper.run();
+    //}
   }
 }
