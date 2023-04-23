@@ -384,6 +384,8 @@ static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 	else
 #if PRINT_DEBUG
 		printf("no right hand!\n"); //don't move the stepper motor
+#else
+		;
 #endif
 }
 
@@ -604,7 +606,7 @@ on_new_kinect_device (GObject      *obj,
   kinect = gfreenect_device_new_finish (res, &error);
   if (kinect == NULL)
     {
-      g_debug ("Failed to created kinect device: %s", error->message);
+      printf ("Failed to created kinect device: %s\n", error->message);
       g_error_free (error);
       clutter_main_quit ();
       return;
@@ -700,6 +702,7 @@ main (int argc, char *argv[])
   signal (SIGINT, quit);
 
   int arduino = open( "/dev/ttyACM0", O_RDWR| O_NOCTTY ); //keep the serial port open for arduino
+  printf("arduino says %d\n", arduino);
 
   clutter_main ();
 
