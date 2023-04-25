@@ -6,9 +6,10 @@
 
 #include <AccelStepper.h>
 
+
+
 // Define the stepper motor and the pins that is connected to
-AccelStepper stepper1(1, 2, 5); // (Typeof driver: with 2 pins, STEP, DIR)
-AccelStepper stepper2(1, 3, 6);
+AccelStepper stepper(AccelStepper::DRIVER, 5, 7); // (Typeof driver: with 2 pins, STEP, DIR)
 
 void setup() {
 
