@@ -335,19 +335,22 @@ connect_joints (cairo_t *cairo,
   clutter_color_free (color);
 }
 
-static int current_stepper_position = 0; //this corresponds to vertical, right in the middle
+static int current_stepper_position = 0; 
+//0 corresponds to vertical, ie the stepper is right in the middle
 static void move_stepper(gint new_position){
 	//640 pixels, 100 steps
 	//this means 6.4 pixels per step.
 	int pos = (new_position - 320);
-	pos /= 6;
-	//now. this is an absolute position. figure out how much we need to move
+	pos /= 6; //estimate with 6. could do floats instead?
+	//now, this is an absolute position. figure out how much we need to move:
 	int d_pos = pos - current_stepper_position;
+	//if we want to move the motor:
 	if(d_pos){
 		current_stepper_position += d_pos;
 #if PRINT_DEBUG
 		printf("Step motor by %d\n", d_pos);
 #endif
+		//Send to Python script
 		char cmd[80];
 		sprintf(cmd, "python serialMotorCMD.py %d", d_pos);
 		int status = system(cmd);
@@ -389,8 +392,7 @@ static void process_hands(SkeltrackJoint *left, SkeltrackJoint *right){
 #endif
 }
 
-static gboolean
-on_skeleton_draw (ClutterCanvas *canvas,
+static gboolean on_skeleton_draw (ClutterCanvas *canvas,
                   cairo_t *cairo,
                   gint width,
                   gint height,

@@ -19,45 +19,24 @@
 # This output is the step value needed to step the motor in Arduino, which is done through
 # serial connections between the Python and Arudino scripts.
 
-# Importing libraries
+#!/usr/bin/python3
+# Usage: ./serialMotorCMD.py numberOfSteps
 import subprocess
 import serial # PySerial library to open a serial connection
 import sys
 import time
 
 def parse_args():
+    if len(sys.argv) < 2:
+        return -1
     send_to_arduino(sys.argv[1])
-
-
-# Function: read the C script as a subprocess to capture and send step value from a specific output line
-# through another function
-def read_c_output():
-     # Run main.c as a subprocess and redirect its output to a pipe
-     # File is located in the current working directory as serialMotorCMD.py
-     p = subprocess.Popen(["./main"], stdout=subprocess.PIPE)
-
-     # Read and parse the output of main.c, line by line, to find the move_stepper function's output line
-     for line in iter(p.stdout.readline, b''):
-          # Decode the bytes returned by the subprocess' output to a string and strip any white spaces at the start or end of the line
-          line = line.decode().strip()
-          # Extract the int, d_pos, from the move_stepper function's output line into the int, steps
-          # Assumes line format: "Step motor by %d\n", where %d is replaced by d_pos
-          if "Step motor by" in line:
-               steps = int(line.split()[-1])
-               # Call the send_to_arduino function with the extracted d_pos value (int steps) as its arg
-               send_to_arduino(steps)
-               # FIXME do we need to break?
 
 # Function: send step value from Python to Arduino via serial communication
 def send_to_arduino(steps):
      # Open and configure serial connection (change as needed) using the PySerial library
-     # FIXME what baud rate to use? - Arduino default = 9600 FIXME timeout = .1
-     # ser = serial.Serial(port = 'COM9', baudrate = 9600, timeout = 1) # Windows port
      ser = serial.Serial(port = '/dev/ttyACM0', baudrate = 115200, timeout = 1) # Linux port
-     # ser = serial.Serial(port='/dev/ttyACM0', baudrate=115200, bytesize=8, parity='N', stopbits=1, timeout=1)
-     # time.sleep(2)
 
-     # Convert the steps value to a byte string and send it to the Arduino
+     # Convert the steps value to a byte string and send it to the Arduino, with a \n char
      # e.g., -1 -> b'-1'
      data = (str(steps)+'\n').encode()
      retval = ser.write(data)
@@ -65,6 +44,5 @@ def send_to_arduino(steps):
      # Close the serial port
      ser.close()
 
-# Call the read_c_output function to start the program
-# read_c_output()
+# Call the parse_args() function to start the program.
 parse_args();
