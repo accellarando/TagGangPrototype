@@ -1,8 +1,10 @@
 talk about what the prototype is - connects the kinect and the stepper motor
+	Ella - introduce what the prototype is
 	Red - talk about Arduino and the stepper
 	Ella - talk about the C program and Python script to send commands
 
 Problems we ran into while building the prototype
-	Red - Stepper motor driver - doesn't actually have Arduino libraries
+	Red - Stepper motor driver - doesn't actually have Arduino libraries so we had to figure out things from the datasheet
 	Ella - Building the example program needed some old libraries
 
+Project relevance - connects the Kinect and stepper motor
